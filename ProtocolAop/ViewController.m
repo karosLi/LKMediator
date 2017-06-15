@@ -27,6 +27,10 @@
     UIViewController *vc = [[LKMediator sharedInstance] performProxy:@protocol(ModuleAProtocol) action:@selector(Action_avViewController:) params:@{kViewControllerKeyId : @"1"}];
     NSLog(@"ModuleA native %@", vc);
     
+    // 当然不建议方法用数字表示，不能表示这个方法的含义。
+    UIViewController *vc1 = [[LKMediator sharedInstance] performProxy:@protocol(ModuleAProtocol) action:@selector(Action_100001:) params:@{kViewControllerKeyId : @"1"}];
+    NSLog(@"ModuleA native %@", vc1);
+    
     // 远程调用
     [[LKMediator sharedInstance] performUrl:[NSURL URLWithString:@"aaa://Platform/100001?id=1234"] completion:nil];
     

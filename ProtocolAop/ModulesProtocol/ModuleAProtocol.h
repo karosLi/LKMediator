@@ -15,6 +15,7 @@ extern NSString * const kViewControllerKeyId;
 @required
 - (UIViewController *)Action_avViewController:(NSDictionary *)params;
 - (void)Action_printSomething:(NSDictionary *)params;
+- (void)Action_100001:(NSDictionary *)params;
 
 @end
 
