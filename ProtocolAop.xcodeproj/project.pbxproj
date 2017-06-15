@@ -13,6 +13,11 @@
 		7CED19A21EF123EA007847E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CED19A01EF123EA007847E9 /* Main.storyboard */; };
 		7CED19A41EF123EA007847E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CED19A31EF123EA007847E9 /* Assets.xcassets */; };
 		7CED19A71EF123EA007847E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CED19A51EF123EA007847E9 /* LaunchScreen.storyboard */; };
+		7CED19B31EF2217F007847E9 /* Proxy_ModuleAProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED19B21EF2217F007847E9 /* Proxy_ModuleAProtocol.m */; };
+		7CED19B71EF22211007847E9 /* LKMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED19B61EF22211007847E9 /* LKMediator.m */; };
+		7CED19BC1EF229B1007847E9 /* Proxy_PlatformProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED19BB1EF229B1007847E9 /* Proxy_PlatformProtocol.m */; };
+		7CED19C51EF23869007847E9 /* ProtocolRuntimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED19C41EF23869007847E9 /* ProtocolRuntimeViewController.m */; };
+		7CED19CB1EF23B22007847E9 /* ModulesProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED19C91EF23B22007847E9 /* ModulesProtocol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,18 @@
 		7CED19A31EF123EA007847E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CED19A61EF123EA007847E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CED19A81EF123EA007847E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CED19B11EF2217F007847E9 /* Proxy_ModuleAProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proxy_ModuleAProtocol.h; sourceTree = "<group>"; };
+		7CED19B21EF2217F007847E9 /* Proxy_ModuleAProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Proxy_ModuleAProtocol.m; sourceTree = "<group>"; };
+		7CED19B51EF22211007847E9 /* LKMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKMediator.h; sourceTree = "<group>"; };
+		7CED19B61EF22211007847E9 /* LKMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKMediator.m; sourceTree = "<group>"; };
+		7CED19BA1EF229B1007847E9 /* Proxy_PlatformProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proxy_PlatformProtocol.h; sourceTree = "<group>"; };
+		7CED19BB1EF229B1007847E9 /* Proxy_PlatformProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Proxy_PlatformProtocol.m; sourceTree = "<group>"; };
+		7CED19C31EF23869007847E9 /* ProtocolRuntimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolRuntimeViewController.h; sourceTree = "<group>"; };
+		7CED19C41EF23869007847E9 /* ProtocolRuntimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolRuntimeViewController.m; sourceTree = "<group>"; };
+		7CED19C71EF23B22007847E9 /* ModuleAProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleAProtocol.h; sourceTree = "<group>"; };
+		7CED19C81EF23B22007847E9 /* ModulesProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModulesProtocol.h; sourceTree = "<group>"; };
+		7CED19C91EF23B22007847E9 /* ModulesProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModulesProtocol.m; sourceTree = "<group>"; };
+		7CED19CA1EF23B22007847E9 /* PlatformProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +75,16 @@
 		7CED19961EF123EA007847E9 /* ProtocolAop */ = {
 			isa = PBXGroup;
 			children = (
-				7CED199A1EF123EA007847E9 /* AppDelegate.h */,
-				7CED199B1EF123EA007847E9 /* AppDelegate.m */,
+				7CED19B41EF22211007847E9 /* LKMediator */,
+				7CED19C61EF23B22007847E9 /* ModulesProtocol */,
+				7CED19BA1EF229B1007847E9 /* Proxy_PlatformProtocol.h */,
+				7CED19BB1EF229B1007847E9 /* Proxy_PlatformProtocol.m */,
+				7CED19B11EF2217F007847E9 /* Proxy_ModuleAProtocol.h */,
+				7CED19B21EF2217F007847E9 /* Proxy_ModuleAProtocol.m */,
 				7CED199D1EF123EA007847E9 /* ViewController.h */,
 				7CED199E1EF123EA007847E9 /* ViewController.m */,
-				7CED19A01EF123EA007847E9 /* Main.storyboard */,
-				7CED19A31EF123EA007847E9 /* Assets.xcassets */,
-				7CED19A51EF123EA007847E9 /* LaunchScreen.storyboard */,
-				7CED19A81EF123EA007847E9 /* Info.plist */,
+				7CED19C31EF23869007847E9 /* ProtocolRuntimeViewController.h */,
+				7CED19C41EF23869007847E9 /* ProtocolRuntimeViewController.m */,
 				7CED19971EF123EA007847E9 /* Supporting Files */,
 			);
 			path = ProtocolAop;
@@ -74,9 +93,35 @@
 		7CED19971EF123EA007847E9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7CED199A1EF123EA007847E9 /* AppDelegate.h */,
+				7CED199B1EF123EA007847E9 /* AppDelegate.m */,
+				7CED19A81EF123EA007847E9 /* Info.plist */,
+				7CED19A31EF123EA007847E9 /* Assets.xcassets */,
+				7CED19A51EF123EA007847E9 /* LaunchScreen.storyboard */,
+				7CED19A01EF123EA007847E9 /* Main.storyboard */,
 				7CED19981EF123EA007847E9 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7CED19B41EF22211007847E9 /* LKMediator */ = {
+			isa = PBXGroup;
+			children = (
+				7CED19B51EF22211007847E9 /* LKMediator.h */,
+				7CED19B61EF22211007847E9 /* LKMediator.m */,
+			);
+			path = LKMediator;
+			sourceTree = "<group>";
+		};
+		7CED19C61EF23B22007847E9 /* ModulesProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				7CED19C81EF23B22007847E9 /* ModulesProtocol.h */,
+				7CED19C91EF23B22007847E9 /* ModulesProtocol.m */,
+				7CED19C71EF23B22007847E9 /* ModuleAProtocol.h */,
+				7CED19CA1EF23B22007847E9 /* PlatformProtocol.h */,
+			);
+			path = ModulesProtocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,8 +197,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CED199F1EF123EA007847E9 /* ViewController.m in Sources */,
+				7CED19B71EF22211007847E9 /* LKMediator.m in Sources */,
 				7CED199C1EF123EA007847E9 /* AppDelegate.m in Sources */,
 				7CED19991EF123EA007847E9 /* main.m in Sources */,
+				7CED19B31EF2217F007847E9 /* Proxy_ModuleAProtocol.m in Sources */,
+				7CED19BC1EF229B1007847E9 /* Proxy_PlatformProtocol.m in Sources */,
+				7CED19C51EF23869007847E9 /* ProtocolRuntimeViewController.m in Sources */,
+				7CED19CB1EF23B22007847E9 /* ModulesProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +364,7 @@
 				7CED19AD1EF123EA007847E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,7 +7,13 @@
 //
 
 #import "ViewController.h"
+#import <objc/runtime.h>
+#import "ModulesProtocol.h"
+#import "LKMediator.h"
 
+/**
+ 面向协议的动态代理组件化方案
+ */
 @interface ViewController ()
 
 @end
@@ -16,14 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    UIViewController *vc = [[LKMediator sharedInstance] performProxy:@protocol(ModuleAProtocol) action:@selector(Action_avViewController:) params:@{kViewControllerKeyId : @"1"}];
+    NSLog(@"ModuleA native %@", vc);
+    
+    [[LKMediator sharedInstance] performUrl:[NSURL URLWithString:@"aaa://Platform/100001?id=1234"] completion:nil];
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
