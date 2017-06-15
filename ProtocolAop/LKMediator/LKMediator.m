@@ -131,30 +131,26 @@
     NSString *protocolName = NSStringFromProtocol(protocol);
     Class class = NSClassFromString([NSString stringWithFormat:@"%@%@", @"Proxy_", protocolName]);
     
-    if (!ClassImplementsAllMethodsInProtocol(class, protocol)) {
-        return nil;
-    }
+#ifdef DEBUG
+    ClassDoNotImplementsMethodsInProtocol(class, protocol);
+#endif
     
     return class;
 }
 
-BOOL ClassImplementsAllMethodsInProtocol(Class class, Protocol *protocol) {
+void ClassDoNotImplementsMethodsInProtocol(Class class, Protocol *protocol) {
     BOOL isRequiredMethod = YES;
     BOOL isInstanceMethod = YES;
     
     unsigned int count;
     struct objc_method_description *methodDescriptions = protocol_copyMethodDescriptionList(protocol, isRequiredMethod, isInstanceMethod, &count);
-    BOOL implementsAll = YES;
+    
     for (unsigned int i = 0; i<count; i++) {
         if (![class instancesRespondToSelector:methodDescriptions[i].name]) {
             NSLog(@"Class %@ do not implement method %@", NSStringFromClass(class), NSStringFromSelector(methodDescriptions[i].name));
-            implementsAll = NO;
-            break;
         }
     }
     free(methodDescriptions);
-    
-    return implementsAll;
 }
 
 @end
