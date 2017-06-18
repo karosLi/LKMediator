@@ -9,7 +9,7 @@
 @protocol PlatformProtocol <NSObject>
 
 @required
-- (void)Action_100001:(NSDictionary *)params;
+- (void)log:(NSDictionary *)params;
 
 @end
 

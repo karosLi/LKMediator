@@ -12,7 +12,7 @@ NSString * const kViewControllerKeyId = @"id";
 
 @implementation Proxy_ModuleAProtocol
 
-- (UIViewController *)Action_avViewController:(NSDictionary *)params {
+- (UIViewController *)avViewController:(NSDictionary *)params {
     return [[UIViewController alloc] init];
 }
 

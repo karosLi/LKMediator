@@ -52,7 +52,7 @@
     }
     
     NSString *protocolString = [NSString stringWithFormat:@"%@Protocol", url.host];
-    actionName = [NSString stringWithFormat:@"Action_%@:", actionName];
+    actionName = [NSString stringWithFormat:@"%@:", actionName];
     
     id result = [self performProxy:NSProtocolFromString(protocolString) action:NSSelectorFromString(actionName) params:params];
     if (completion) {

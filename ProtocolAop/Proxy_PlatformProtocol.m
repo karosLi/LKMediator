@@ -10,9 +10,9 @@
 
 @implementation Proxy_PlatformProtocol
 
-- (void)Action_100001:(NSDictionary *)params
+- (void)log:(NSDictionary *)params
 {
-    NSLog(@"Action_100001 %@", params);
+    NSLog(@"log %@", params);
 }
 
 @end

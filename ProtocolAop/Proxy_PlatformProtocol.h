@@ -10,6 +10,6 @@
 
 @interface Proxy_PlatformProtocol : NSObject
 
-- (void)Action_100001:(NSDictionary *)params;
+- (void)log:(NSDictionary *)params;
 
 @end

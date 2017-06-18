@@ -13,9 +13,8 @@ extern NSString * const kViewControllerKeyId;
 @protocol ModuleAProtocol <NSObject>
 
 @required
-- (UIViewController *)Action_avViewController:(NSDictionary *)params;
-- (void)Action_printSomething:(NSDictionary *)params;
-- (void)Action_100001:(NSDictionary *)params;
+- (UIViewController *)avViewController:(NSDictionary *)params;
+- (void)printSomething:(NSDictionary *)params;
 
 @end
 

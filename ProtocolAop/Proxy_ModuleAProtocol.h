@@ -10,7 +10,7 @@
 
 @interface Proxy_ModuleAProtocol : NSObject
 
-- (UIViewController *)Action_avViewController:(NSDictionary *)params;
+- (UIViewController *)avViewController:(NSDictionary *)params;
 
 @end
 
