@@ -93,14 +93,14 @@
     if ([proxy respondsToSelector:action]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        return [proxy performSelector:action withObject:params];
+        return [self safePerformAction:action target:proxy params:params];
 #pragma clang diagnostic pop
     } else {
         SEL action = NSSelectorFromString(@"notFound:");
         if ([proxy respondsToSelector:action]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-            return [proxy performSelector:action withObject:params];
+            return [self safePerformAction:action target:proxy params:params];;
 #pragma clang diagnostic pop
         } else {
             [self.cachedProxys removeObjectForKey:proxyClassString];
@@ -127,6 +127,29 @@
 }
 
 #pragma mark - pricate methods
+- (id)safePerformAction:(SEL)action target:(NSObject *)target params:(NSDictionary *)params
+{
+    NSMethodSignature* methodSig = [target methodSignatureForSelector:action];
+    if(methodSig == nil) {
+        return nil;
+    }
+    const char* retType = [methodSig methodReturnType];
+    
+    if (strcmp(retType, @encode(void)) == 0) {
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+        [invocation setArgument:&params atIndex:2];
+        [invocation setSelector:action];
+        [invocation setTarget:target];
+        [invocation invoke];
+        return nil;
+    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        return [target performSelector:action withObject:params];
+#pragma clang diagnostic pop
+    }
+}
+
 - (Class)proxyClassForProtocol:(Protocol *)protocol {
     NSString *protocolName = NSStringFromProtocol(protocol);
     Class class = NSClassFromString([NSString stringWithFormat:@"%@%@", @"Proxy_", protocolName]);
