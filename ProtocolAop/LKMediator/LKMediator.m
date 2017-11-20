@@ -7,6 +7,7 @@
 //
 
 #import "LKMediator.h"
+#import "VKMsgSend.h"
 #import <objc/runtime.h>
 
 @interface LKMediator ()

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VKMsgSend.h"
 
 @interface LKMediator : NSObject
 
