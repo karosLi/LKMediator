@@ -20,8 +20,8 @@
 - (id)performProxy:(Protocol *)protocol action:(SEL)action cacheProxy:(BOOL)cacheProxy params:(NSDictionary *)params;
 
 // 本地组件调用入口, 支持可变参数
-- (id)performProxy:(Protocol *)protocol action:(SEL)action error:(NSError *__autoreleasing *)error,...;
-- (id)performProxy:(Protocol *)protocol action:(SEL)action cacheProxy:(BOOL)cacheProxy error:(NSError *__autoreleasing *)error,...;
+- (id)performProxy:(Protocol *)protocol action:(SEL)action,...;
+- (id)performProxy:(Protocol *)protocol cacheProxy:(BOOL)cacheProxy action:(SEL)action,...;
 
 - (void)releaseCachedProxyForProtocol:(Protocol *)protocol;
 

@@ -112,7 +112,7 @@
     return nil;
 }
 
-- (id)performProxy:(Protocol *)protocol action:(SEL)action error:(NSError *__autoreleasing *)error,...
+- (id)performProxy:(Protocol *)protocol action:(SEL)action,...
 {
     Class proxyClass;
     NSString *proxyClassString = NSStringFromProtocol(protocol);
@@ -129,20 +129,20 @@
     
     if ([proxy respondsToSelector:action]) {
         va_list argList;
-        va_start(argList, error);
-        NSArray* boxingArguments = vk_targetBoxingArguments(argList, proxyClass, action, error);
+        va_start(argList, action);
+        NSArray* boxingArguments = vk_targetBoxingArguments(argList, proxyClass, action, nil);
         va_end(argList);
         
         if (!boxingArguments) {
             return nil;
         }
-        return vk_targetCallSelectorWithArgumentError(proxy, action, boxingArguments, error);
+        return vk_targetCallSelectorWithArgumentError(proxy, action, boxingArguments, nil);
     }
     
     return nil;
 }
 
-- (id)performProxy:(Protocol *)protocol action:(SEL)action cacheProxy:(BOOL)cacheProxy error:(NSError *__autoreleasing *)error,...
+- (id)performProxy:(Protocol *)protocol cacheProxy:(BOOL)cacheProxy action:(SEL)action,...
 {
     Class proxyClass;
     NSString *proxyClassString = NSStringFromProtocol(protocol);
@@ -163,14 +163,14 @@
     
     if ([proxy respondsToSelector:action]) {
         va_list argList;
-        va_start(argList, error);
-        NSArray* boxingArguments = vk_targetBoxingArguments(argList, proxyClass, action, error);
+        va_start(argList, action);
+        NSArray* boxingArguments = vk_targetBoxingArguments(argList, proxyClass, action, nil);
         va_end(argList);
         
         if (!boxingArguments) {
             return nil;
         }
-        return vk_targetCallSelectorWithArgumentError(proxy, action, boxingArguments, error);
+        return vk_targetCallSelectorWithArgumentError(proxy, action, boxingArguments, nil);
     } else {
         [self.cachedProxys removeObjectForKey:proxyClassString];
         return nil;
