@@ -16,4 +16,11 @@ NSString * const kViewControllerKeyId = @"id";
     return [[UIViewController alloc] init];
 }
 
+- (void)nativeInvokeCaclA:(NSNumber *)a addB:(NSNumber *)b resultBlock:(void(^)(NSInteger result))resultBlock {
+    NSInteger c = a.integerValue + b.integerValue;
+    if (resultBlock) {
+        resultBlock(c);
+    }
+}
+
 @end

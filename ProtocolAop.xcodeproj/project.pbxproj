@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C91EBE81FC2802200AF5FDA /* VKMsgSend.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C91EBE71FC2802200AF5FDA /* VKMsgSend.m */; };
 		7CED19991EF123EA007847E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED19981EF123EA007847E9 /* main.m */; };
 		7CED199C1EF123EA007847E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED199B1EF123EA007847E9 /* AppDelegate.m */; };
 		7CED199F1EF123EA007847E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED199E1EF123EA007847E9 /* ViewController.m */; };
@@ -18,9 +19,15 @@
 		7CED19BC1EF229B1007847E9 /* Proxy_PlatformProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED19BB1EF229B1007847E9 /* Proxy_PlatformProtocol.m */; };
 		7CED19C51EF23869007847E9 /* ProtocolRuntimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED19C41EF23869007847E9 /* ProtocolRuntimeViewController.m */; };
 		7CED19CB1EF23B22007847E9 /* ModulesProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED19C91EF23B22007847E9 /* ModulesProtocol.m */; };
+		A80F0D413A00B4D0B2D89D8B /* libPods-ProtocolAop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE920243A6CCFC4BCA793CF /* libPods-ProtocolAop.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B80B04220C838FF333095A7 /* Pods-ProtocolAop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtocolAop.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProtocolAop/Pods-ProtocolAop.release.xcconfig"; sourceTree = "<group>"; };
+		6E4069C941B56422F04A8910 /* Pods-ProtocolAop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtocolAop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProtocolAop/Pods-ProtocolAop.debug.xcconfig"; sourceTree = "<group>"; };
+		7BE920243A6CCFC4BCA793CF /* libPods-ProtocolAop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProtocolAop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C91EBE61FC2802200AF5FDA /* VKMsgSend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKMsgSend.h; sourceTree = "<group>"; };
+		7C91EBE71FC2802200AF5FDA /* VKMsgSend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKMsgSend.m; sourceTree = "<group>"; };
 		7CED19941EF123EA007847E9 /* ProtocolAop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtocolAop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CED19981EF123EA007847E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CED199A1EF123EA007847E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,17 +57,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A80F0D413A00B4D0B2D89D8B /* libPods-ProtocolAop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A774810962C010E92624757 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6E4069C941B56422F04A8910 /* Pods-ProtocolAop.debug.xcconfig */,
+				0B80B04220C838FF333095A7 /* Pods-ProtocolAop.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5B1B7C6E8D27F3C7A0EC6B0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BE920243A6CCFC4BCA793CF /* libPods-ProtocolAop.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C91EBE51FC2802200AF5FDA /* VKMsgSend */ = {
+			isa = PBXGroup;
+			children = (
+				7C91EBE61FC2802200AF5FDA /* VKMsgSend.h */,
+				7C91EBE71FC2802200AF5FDA /* VKMsgSend.m */,
+			);
+			path = VKMsgSend;
+			sourceTree = "<group>";
+		};
 		7CED198B1EF123EA007847E9 = {
 			isa = PBXGroup;
 			children = (
 				7CED19961EF123EA007847E9 /* ProtocolAop */,
 				7CED19951EF123EA007847E9 /* Products */,
+				5B1B7C6E8D27F3C7A0EC6B0A /* Frameworks */,
+				1A774810962C010E92624757 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +143,7 @@
 		7CED19B41EF22211007847E9 /* LKMediator */ = {
 			isa = PBXGroup;
 			children = (
+				7C91EBE51FC2802200AF5FDA /* VKMsgSend */,
 				7CED19B51EF22211007847E9 /* LKMediator.h */,
 				7CED19B61EF22211007847E9 /* LKMediator.m */,
 			);
@@ -131,9 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CED19AB1EF123EA007847E9 /* Build configuration list for PBXNativeTarget "ProtocolAop" */;
 			buildPhases = (
+				F093660F4FCD4E10A050120C /* [CP] Check Pods Manifest.lock */,
 				7CED19901EF123EA007847E9 /* Sources */,
 				7CED19911EF123EA007847E9 /* Frameworks */,
 				7CED19921EF123EA007847E9 /* Resources */,
+				F37D83F1DFF24CA681CA0617 /* [CP] Embed Pods Frameworks */,
+				09A66F51E6C825332163E5D3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,6 +231,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09A66F51E6C825332163E5D3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProtocolAop/Pods-ProtocolAop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F093660F4FCD4E10A050120C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProtocolAop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F37D83F1DFF24CA681CA0617 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ProtocolAop/Pods-ProtocolAop-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/VKURLAction/VKURLAction.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VKURLAction.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProtocolAop/Pods-ProtocolAop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7CED19901EF123EA007847E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -202,6 +296,7 @@
 				7CED19991EF123EA007847E9 /* main.m in Sources */,
 				7CED19B31EF2217F007847E9 /* Proxy_ModuleAProtocol.m in Sources */,
 				7CED19BC1EF229B1007847E9 /* Proxy_PlatformProtocol.m in Sources */,
+				7C91EBE81FC2802200AF5FDA /* VKMsgSend.m in Sources */,
 				7CED19C51EF23869007847E9 /* ProtocolRuntimeViewController.m in Sources */,
 				7CED19CB1EF23B22007847E9 /* ModulesProtocol.m in Sources */,
 			);
@@ -323,6 +418,7 @@
 		};
 		7CED19AC1EF123EA007847E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E4069C941B56422F04A8910 /* Pods-ProtocolAop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7M2A8Q929Y;
@@ -335,6 +431,7 @@
 		};
 		7CED19AD1EF123EA007847E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B80B04220C838FF333095A7 /* Pods-ProtocolAop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7M2A8Q929Y;

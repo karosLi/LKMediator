@@ -68,10 +68,10 @@
 
 - (id)performProxy:(Protocol *)protocol action:(SEL)action params:(NSDictionary *)params
 {
-    return [self performProxy:protocol action:action params:params cacheProxy:NO];
+    return [self performProxy:protocol action:action cacheProxy:NO params:params];
 }
 
-- (id)performProxy:(Protocol *)protocol action:(SEL)action params:(NSDictionary *)params cacheProxy:(BOOL)cacheProxy
+- (id)performProxy:(Protocol *)protocol action:(SEL)action cacheProxy:(BOOL)cacheProxy params:(NSDictionary *)params
 {
     Class proxyClass;
     NSString *proxyClassString = NSStringFromProtocol(protocol);
@@ -106,6 +106,73 @@
             [self.cachedProxys removeObjectForKey:proxyClassString];
             return nil;
         }
+    }
+    
+    return nil;
+}
+
+- (id)performProxy:(Protocol *)protocol action:(SEL)action error:(NSError *__autoreleasing *)error,...
+{
+    Class proxyClass;
+    NSString *proxyClassString = NSStringFromProtocol(protocol);
+    
+    NSObject *proxy = self.cachedProxys[proxyClassString];
+    if (proxy == nil) {
+        proxyClass = [self proxyClassForProtocol:protocol];
+        proxy = [[proxyClass alloc] init];
+    }
+    
+    if (proxyClass == nil) {
+        return nil;
+    }
+    
+    if ([proxy respondsToSelector:action]) {
+        va_list argList;
+        va_start(argList, error);
+        NSArray* boxingArguments = vk_targetBoxingArguments(argList, proxyClass, action, error);
+        va_end(argList);
+        
+        if (!boxingArguments) {
+            return nil;
+        }
+        return vk_targetCallSelectorWithArgumentError(proxy, action, boxingArguments, error);
+    }
+    
+    return nil;
+}
+
+- (id)performProxy:(Protocol *)protocol action:(SEL)action cacheProxy:(BOOL)cacheProxy error:(NSError *__autoreleasing *)error,...
+{
+    Class proxyClass;
+    NSString *proxyClassString = NSStringFromProtocol(protocol);
+    
+    NSObject *proxy = self.cachedProxys[proxyClassString];
+    if (proxy == nil) {
+        proxyClass = [self proxyClassForProtocol:protocol];
+        proxy = [[proxyClass alloc] init];
+    }
+    
+    if (proxyClass == nil) {
+        return nil;
+    }
+    
+    if (cacheProxy) {
+        self.cachedProxys[proxyClassString] = proxyClass;
+    }
+    
+    if ([proxy respondsToSelector:action]) {
+        va_list argList;
+        va_start(argList, error);
+        NSArray* boxingArguments = vk_targetBoxingArguments(argList, proxyClass, action, error);
+        va_end(argList);
+        
+        if (!boxingArguments) {
+            return nil;
+        }
+        return vk_targetCallSelectorWithArgumentError(proxy, action, boxingArguments, error);
+    } else {
+        [self.cachedProxys removeObjectForKey:proxyClassString];
+        return nil;
     }
     
     return nil;

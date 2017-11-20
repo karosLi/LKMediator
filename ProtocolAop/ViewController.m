@@ -32,6 +32,12 @@
     
     // 调用一个不存在的方法
     [[LKMediator sharedInstance] performProxy:@protocol(ModuleAProtocol) action:@selector(printSomething:) params:@{kViewControllerKeyId : @"1"}];
+    
+//    [[LKMediator sharedInstance] performProxy:@protocol(ModuleAProtocol) action:@selector(nativeInvokeCaclA:addB:) parameters:@"1",@"2",nil];
+    
+    [[LKMediator sharedInstance] performProxy:@protocol(ModuleAProtocol) action:@selector(nativeInvokeCaclA:addB:resultBlock:) error:nil,@1,@3,^(NSInteger result) {
+        NSLog(@"%zd", result);
+    }];
 }
 
 @end

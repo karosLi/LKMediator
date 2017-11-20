@@ -15,6 +15,7 @@ extern NSString * const kViewControllerKeyId;
 @required
 - (UIViewController *)avViewController:(NSDictionary *)params;
 - (void)printSomething:(NSDictionary *)params;
+- (void)nativeInvokeCaclA:(NSNumber *)a addB:(NSNumber *)b resultBlock:(void(^)(NSInteger result))resultBlock;
 
 @end
 
